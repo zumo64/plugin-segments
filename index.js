@@ -1,4 +1,6 @@
-import exampleRoute from './server/routes/example';
+import routes from './server/routes/routes';
+
+
 
 export default function (kibana) {
   return new kibana.Plugin({
@@ -8,7 +10,7 @@ export default function (kibana) {
       app: {
         title: 'Segments',
         description: 'Display segment allocation in real time',
-        main: 'plugins/segments/app'
+        main: 'plugins/segments/controllers/main'
       },
       hacks: [
         'plugins/segments/hack'
@@ -22,8 +24,9 @@ export default function (kibana) {
     },
 
     init(server, options) {
+       server.log(["info"],"init  routes");
       // Add server routes and initalize the plugin here
-      exampleRoute(server);
+       routes(server);
     }
 
   });

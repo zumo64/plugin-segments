@@ -1,13 +1,35 @@
-<div class="container" ng-controller="segmentsHelloWorld">
-  <div class="row">
-    <div class="col-12-sm">
-      <div class="well">
-        <h2>Congratulations</h2>
-        <p class="lead">You've successfully created your first Kibana Plugin!</p>
-      </div>
-      <h1>{{ title }}</h1>
-      <p class="lead">{{ description }}</p>
-      <p>The current time is {{ currentTime }}</p>
+<div class="container">
+  <div class="params">
+    
+    <div class="paramsItem">
+      
+      <p>Select an index</p>
+      <select ng-model="selectedIndex" ng-options="index.name for index in indices" ng-change="onChange()">
+
+      </select>
+      
     </div>
+   
+    
+    
+    <div class="paramsItem">
+           
+      <p>Refresh Rate (seconds)</p>
+      <select ng-model="selectedRate" ng-options="rate.value for rate in rates" ng-change="onRateChange()">
+
+      </select>
+    </div>
+    
+    
+    
   </div>
+</div>
+
+
+
+<div class="segments">
+    <span ng-repeat="shard in shards">  
+      <segment metrics="shard"/>
+    </span>
+
 </div>
