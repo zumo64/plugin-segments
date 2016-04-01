@@ -1,1 +1,2 @@
 Segments Kibana plugin
+----------------------
