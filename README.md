@@ -1,1 +1,1 @@
-Segments
+Segments Kibana plugin
